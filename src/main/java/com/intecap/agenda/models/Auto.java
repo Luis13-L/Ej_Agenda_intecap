@@ -1,19 +1,22 @@
 package com.intecap.agenda.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "auto")
 public class Auto {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
+    private Long id;
+
     private String marca;
     private String modelo;
     private String color;
     private String placa;
     private String anio;
 
-    public Auto(String marca, String modelo, String color, String placa, String anio) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.color = color;
-        this.placa = placa;
-        this.anio = anio;
-    }
 
     public String getMarca() {
         return marca;
